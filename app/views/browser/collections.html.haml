@@ -1,0 +1,8 @@
+%strong
+	Collections under: 
+	%a{:href => '/'}= @dbname
+	%br
+
+- @collnames.each do |coll|
+	%a{:href => '/' + @dbname + '/' + coll}= coll
+	%br

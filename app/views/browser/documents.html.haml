@@ -1,0 +1,7 @@
+%strong
+	Documents under
+	%a{:href => '/' + params[:database]}= params[:collection]
+	%br
+- @coll.find.each do |find|
+	%a{:href => '/' + params[:database] + '/' + params[:collection] + '/' + find["_id"].to_s}= find
+	%br
