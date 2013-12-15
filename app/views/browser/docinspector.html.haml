@@ -1,14 +1,24 @@
-%strong
-	Document inspector for _id: 
-	= params[:documentid]
-	, under
-	%a{:href => '/' + params[:database] + '/' + params[:collection]}= params[:collection]
-	%br
-= @length
-- @doc.keys.each do |k|
-	=k 
-	%strong :  
-	=@doc[k]
-	%br
-	
+%ul{:class => 'breadcrumb'}
+	%li
+		%a{:href => '/'} MongoDB
+		(Home) 
+		\/
+	%li
+		%a{:href => '/' + params[:database]}= params[:database]
+		(DB)
+		\/
+	%li
+		%a{:href => '/' + params[:database] + '/' + params[:collection]}= params[:collection]
+		(Collection)
+		\/
+	%li{:class => 'active'}= params[:documentid] + ' (Document)'
 
+%table{:class => 'table'}
+	- @doc.keys.each do |k|
+		%tr
+			%td
+				=k 
+				%strong :  
+				=@doc[k]
+	%tr
+		%td

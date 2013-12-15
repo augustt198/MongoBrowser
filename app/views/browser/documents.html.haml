@@ -1,7 +1,19 @@
-%strong
-	Documents under
-	%a{:href => '/' + params[:database]}= params[:collection]
-	%br
-- @coll.find.each do |find|
-	%a{:href => '/' + params[:database] + '/' + params[:collection] + '/' + find["_id"].to_s}= find
-	%br
+%ul{:class => 'breadcrumb'}
+	%li
+		%a{:href => '/'} MongoDB
+		(Home) 
+		\/
+	%li
+		%a{:href => '/' + params[:database]}= params[:database]
+		(DB)
+		\/
+	%li{:class => 'active'}= params[:collection] + ' (Collection)'
+
+%table{:class => 'table'}
+	%tbody
+		- @coll.find.each do |find|
+			%tr
+				%td
+					%a{:href => '/' + params[:database] + '/' + params[:collection] + '/' + find["_id"].to_s}= find
+	%tr
+		%td

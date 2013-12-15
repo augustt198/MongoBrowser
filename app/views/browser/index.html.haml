@@ -1,5 +1,11 @@
-%strong Databases
-%br
-- @databases.each do |db|
-	%a{:href => '/' + db}= db
-	%br	
+%ul{:class => 'breadcrumb'}
+	%li{:class => 'active'} MongoDB
+
+%table{:class => 'table'}	
+	%tbody
+		- @databases.each do |db|
+			%tr
+				%td
+					%a{:href => '/' + db}= db
+	%tr
+		%td

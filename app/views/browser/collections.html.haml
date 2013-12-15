@@ -1,8 +1,14 @@
-%strong
-	Collections under: 
-	%a{:href => '/'}= @dbname
-	%br
+%ul{:class => 'breadcrumb'}
+	%li
+		%a{:href => '/'} MongoDB
+		(Home) 
+		\/
+	%li{:class => 'active'}= params[:database] + ' (DB)'
 
-- @collnames.each do |coll|
-	%a{:href => '/' + @dbname + '/' + coll}= coll
-	%br
+%table{:class => 'table'}
+	- @collnames.each do |coll|
+		%tr
+			%td
+				%a{:href => '/' + @dbname + '/' + coll}= coll
+	%tr
+		%td
