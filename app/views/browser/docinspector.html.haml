@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 %ul{:class => 'breadcrumb'}
 	%li
 		%a{:href => '/'} MongoDB
@@ -12,6 +13,20 @@
 		(Collection)
 		\/
 	%li{:class => 'active'}= params[:documentid] + ' (Document)'
+=======
+%strong
+	Document inspector for _id: 
+	= params[:documentid]
+	, under
+	%a{:href => '/' + params[:database] + '/' + params[:collection]}= params[:collection]
+	%br
+- @doc.keys.each do |k|
+	=k 
+	%strong :  
+	=@doc[k]
+	%br
+	
+>>>>>>> d061e481cce4df86e9f87a7c018d1feb2e1ad76d
 
 %table{:class => 'table'}
 	- @doc.keys.each do |k|
